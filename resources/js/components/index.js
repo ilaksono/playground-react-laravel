@@ -1,18 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Register from './Register';
+import {
+  Link,
+  Switch,
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
+import UsersView from './UsersView';
 
 export default function Index() {
+
   return (
     <div className="container">
-      <div className="row justify-content-center">
-        <div className="col-md-8">
-          <div className="card">
+      <Router>
+        <Switch>
+          <Route path='/' exact>
             <div className="card-header">Example Component</div>
+            <Link to='/register'>
+              <button>go to register</button>
+            </Link>
+          </Route>
+          <Route path='/register'>
             <Register />
-          </div>
-        </div>
-      </div>
+          </Route>
+          <Route path='/users'>
+            <UsersView />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

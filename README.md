@@ -60,3 +60,15 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+# Steps:
+- call or fetch api in laravel
+make controller
+make view
+make router
+code for call api
+show listing
+
+# Commands:
+- php artisan make:controller Users

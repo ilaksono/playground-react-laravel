@@ -9971,3 +9971,8 @@ h3 {
     border-color: #dee2e6;
   }
 }
+#root {
+  background-color: red;
+  width: 100%;
+  height: 100%;
+}

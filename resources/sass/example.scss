@@ -1,0 +1,21 @@
+@import './helpers.scss';
+
+button {
+  background-color: blue;
+  width: 400px;
+}
+.register-layout {
+  height: 100%;
+  width: 100%; 
+  @include flexbox(column, flex-start, center);
+  // margin: 12px;
+  background-color: grey;
+}
+.container {
+  height: 100vh;
+
+}
+.form-reg {
+  @include flexbox(column, space-around, center);
+  height: 100%;
+}
