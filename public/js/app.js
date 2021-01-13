@@ -2078,8 +2078,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var UsersView = function UsersView() {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    console.log('load');
     axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/users').then(function (res) {
-      return console.log(JSON.parse(res.data));
+      return console.log(res, 'here');
+    })["catch"](function (er) {
+      return console.log(er, 'here');
+    });
+    axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/userss').then(function (res) {
+      return console.log(res, 'ho');
+    })["catch"](function (er) {
+      return console.log(er, 'ho');
     });
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
