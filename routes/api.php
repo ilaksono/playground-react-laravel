@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,7 +22,13 @@ function console_log($output, $with_script_tags = true) {
     echo $js_code;
 }
 
-Route::get('/api/users', ['uses' => 'API\Users@index']);
+
+// Route::get('/users', function() {
+//   // console_log('hello');
+  
+//   return 'hello';
+// });
+Route::get('/users', [UserController::class, 'index']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

@@ -33,5 +33,7 @@ use Illuminate\Http\Response;
 // });
 
 
-Route::get('/api/users', 'Users@index');
+// Route::view('/users','index',['data' => 'sup']);
+
+// Route::get('/api/users', 'Users@index');
 Route::view('/{path?}', 'index');

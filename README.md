@@ -74,3 +74,5 @@ show listing
 
 # Commands:
 - php artisan make:controller Users
+ - php artisan make:model Blog
+ - php artisan make:controller Api/BlogController --resource

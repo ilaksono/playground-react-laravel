@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+// use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facaces\Http;
 // use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Client\Response;
 
-class Users extends Controller
+class User extends Controller
 {
   // protected function index(Request $req): JsonResponse {
   //   $client = new Client();
@@ -27,7 +28,7 @@ class Users extends Controller
 
   // }
 
-    function index(){
+    public function index(){
       // $data = Http::get('https://jsonplaceholder.typicode.com/posts')
       // ->json();
       // return reponse($data);
@@ -35,7 +36,8 @@ class Users extends Controller
       // return Http::get('http://example.com')->body();
       // return $response -> json();
       // return $data->json();
-      console_log(response() -> json());
-      // return ['a' => 1, 'b' => 2];
+    
+      // console_log(response() -> json());
+      return ['a' => 1, 'b' => 2];
     }
 }
