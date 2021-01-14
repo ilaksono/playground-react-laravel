@@ -27,6 +27,7 @@
         "gulp": "^4.0.2",
         "laravel-mix": "^6.0.9",
         "react-bootstrap": "^1.4.3",
+        "react-cookie": "^4.0.3",
         "react-router-dom": "^5.2.0"
     }
 }

@@ -11,6 +11,8 @@ use Illuminate\Http\Client\Response;
 use GuzzleHttp\Client;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
 class UserController extends Controller
 {
   // protected function index(Request $req): JsonResponse {
@@ -33,15 +35,35 @@ class UserController extends Controller
   // $user = new User();
   // $user->name = $username;
   // $user.save();
-public function all(Request $req) {
-  $all = DB::select('select * from users');
-  return response([ 'all'=> $all ]);
-}
+
+  
+  
+  public function updatePassword(Request $request) {
+    $request -> user() -> fill([
+      'password' => Hash::make($request -> newPassword)
+    ])-> save();
+  }
+
+  public function all(Request $req) {
+    $all = DB::select('select * from users');
+    return response([ 'all'=> $all ]);
+  }
 
   public function register(Request $req) {
     $username = $req->username;
-    $users = DB::insert('insert into users (name) values (?)', [$username]);
-    echo $users;
+    $password = $req->password;
+    $user = new User();
+    console_log($username);
+    $user -> password = Hash::make($password, [
+      'rounds' => 12
+    ]);
+    // $user -> api_token = $req -> header();
+    // console_log($user -> api_token -> x-xsrf-token);
+    $user -> name = $username;
+    // console_log($req);
+    $user -> save();
+    $this -> updatePassword($req);
+    // $users = DB::insert('insert into users (name) values (?)', [$username]);
     return response(['user' => $username]);
   }
 

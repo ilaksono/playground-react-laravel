@@ -9,12 +9,14 @@ import {
 } from 'react-router-dom';
 import UsersView from './UsersView';
 import NavBar from './NavBar';
+import { CookiesProvider } from 'react-cookie';
 // import '../../sass/NavBar.scss';
 
 export default function Index() {
 
   return (
     <div className="container">
+      <CookiesProvider>
       <Router>
         <NavBar/>
         <Switch>
@@ -36,6 +38,7 @@ export default function Index() {
           </Route>
         </Switch>
       </Router>
+      </CookiesProvider>
     </div>
   );
 }

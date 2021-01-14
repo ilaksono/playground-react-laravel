@@ -1,6 +1,22 @@
 import { Link } from 'react-router-dom';
-
+import { useCookies } from 'react-cookie';
+import { useEffect } from 'react';
+import axios from 'axios';
 const NavBar = () => {
+  const [cookies, setCookie] = useCookies();
+
+  useEffect(() => {
+    if (cookies["XSRF-TOKEN"])
+      console.log(cookies["XSRF-TOKEN"]);
+    const headers = [
+      {"XSRF-TOKEN": cookies["XSRF-TOKEN"]},
+      {'Access-Control-Allow-Origin': true},
+    ];
+    axios
+      .get('/api/user', { headers, mode: 'cors' })
+      .then(res => console.log(res))
+      .catch(er => console.log(er));
+  }, []);
 
 
   return (

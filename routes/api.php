@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RegisterController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,8 +30,10 @@ function console_log($output, $with_script_tags = true) {
   
 //   return 'hello';
 // });
+Route::post('/register', [RegisterController::class, 'create']);
+
 Route::get('/users/all', [UserController::class, 'all']);
-Route::post('/register', [UserController::class, 'register']);
+// Route::post('/register', [UserController::class, 'register']);
 Route::get('/users', [UserController::class, 'index']);
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

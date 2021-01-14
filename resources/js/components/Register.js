@@ -6,16 +6,19 @@ const Register = () => {
   const [err, setErr] = useState('');
   const [val, setVal] = useState('');
   const history = useHistory();
+  const [pass, setPass] = useState('');
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const headers = {
       'Content-Type': 'application/json',
-      'Authorization': 'test'
+      'Authorization': 'test',
+      'Access-Control-Allow-Origin': true
     };
-    const data = { username: val };
+    const data = { username: val, password: pass };
     try {
       const res = await axios
-        .post('/api/register', data, { headers });
+        .post('/api/register', data, { headers, mode: 'cors' });
       setErr('success!');
 
     } catch (er) {
@@ -24,6 +27,7 @@ const Register = () => {
     }
     console.log('ayy');
   };
+
   return (
     <div className='register-layout'>
 
@@ -32,10 +36,19 @@ const Register = () => {
           placeholder='username'
           value={val}
           style={{
-            zIndex:1
+            zIndex: 1
           }}
           onChange={e =>
             setVal(e.target.value)}
+        />
+        <input value={pass}
+          style={{
+            zIndex: 1
+          }}
+          placeholder='password'
+          onChange={e =>
+            setPass(e.target.value)}
+          type='password'
         />
         <button type='submit' onClick={handleSubmit}>
           Register!
