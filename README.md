@@ -131,3 +131,6 @@ public function register(Request $req) {
   }
 ```
 
+## Notes:
+ - by default, columns are NOT NULL constraint
+ - to enable null, add `->nullable()` to migration

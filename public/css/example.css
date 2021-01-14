@@ -10,7 +10,10 @@ button {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: grey;
+  background-color: #ececec;
+  -webkit-animation: fadeInRight 1s 1;
+          animation: fadeInRight 1s 1;
+  padding-top: 87px;
 }
 
 .container {
@@ -23,4 +26,26 @@ button {
   justify-content: space-around;
   align-items: center;
   height: 100%;
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }

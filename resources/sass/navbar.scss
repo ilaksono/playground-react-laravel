@@ -1,9 +1,16 @@
 .nav-item {
-  border-radius: 50%;
+  border-radius: 10px;
   // background-color: grey;
-  color: black;
+  color: white;
   font-weight: bold;
+  padding: 4px;
   border: 2px solid grey;
-  height: 50px;
-  width: 50px;
+  // height: 50px;
+  // width: 50px;
+  font-size: 24px;
+  height: 100%;
+}
+.nav-container {
+  box-shadow: 0 0 4px 4px rgb(199, 199, 199);
+  z-index: 2;
 }

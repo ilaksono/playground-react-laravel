@@ -28,6 +28,7 @@ function console_log($output, $with_script_tags = true) {
   
 //   return 'hello';
 // });
+Route::get('/users/all', [UserController::class, 'all']);
 Route::post('/register', [UserController::class, 'register']);
 Route::get('/users', [UserController::class, 'index']);
 Route::middleware('auth:api')->get('/user', function (Request $request) {

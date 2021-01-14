@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import StyledTable from './StyledTable';
 const UsersView = () => {
 
   const [state, setState] = useState([]);
-
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     console.log('load');
@@ -15,6 +16,9 @@ const UsersView = () => {
     // axios.get('/api/userss')
     //   .then((res) => console.log(res, 'ho, usersss'))
     //   .catch(er => console.log(er, 'ho'))
+    axios.get('/api/users/all')
+    .then(res => setUsers(res.data.all))
+    .catch(er => console.log(er));
   }, []);
 
   let parsedData = [];
@@ -42,7 +46,8 @@ const UsersView = () => {
   }
   return (
     <div>
-      Hi
+      Table:
+      <StyledTable data={users}/>
       {parsedData}
     </div>
   );

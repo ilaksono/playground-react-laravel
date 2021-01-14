@@ -9,7 +9,9 @@ button {
   width: 100%; 
   @include flexbox(column, flex-start, center);
   // margin: 12px;
-  background-color: grey;
+  background-color: rgb(236, 236, 236);
+  animation: fadeInRight 1s 1;
+  padding-top: 87px;
 }
 .container {
   height: 100vh;
@@ -18,4 +20,18 @@ button {
 .form-reg {
   @include flexbox(column, space-around, center);
   height: 100%;
+}
+
+
+@keyframes fadeInRight {
+
+  0% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }

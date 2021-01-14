@@ -19,7 +19,11 @@ export default function Index() {
         <NavBar/>
         <Switch>
           <Route path='/' exact>
-            <div className="card-header">Example Component</div>
+            <div className="card-header"
+            style={{
+              paddingTop:87
+            }}
+            >Example Component</div>
             <Link to='/register'>
               <button>go to register</button>
             </Link>

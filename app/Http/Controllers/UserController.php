@@ -33,6 +33,11 @@ class UserController extends Controller
   // $user = new User();
   // $user->name = $username;
   // $user.save();
+public function all(Request $req) {
+  $all = DB::select('select * from users');
+  return response([ 'all'=> $all ]);
+}
+
   public function register(Request $req) {
     $username = $req->username;
     $users = DB::insert('insert into users (name) values (?)', [$username]);
