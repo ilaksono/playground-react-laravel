@@ -1,0 +1,8 @@
+.nav-item {
+  border-radius: 50%;
+  background-color: grey;
+  color: grey;
+  border: 2px solid grey;
+  height: 40px;
+  width: 40px;
+}

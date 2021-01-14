@@ -8,12 +8,15 @@ import {
   Route
 } from 'react-router-dom';
 import UsersView from './UsersView';
+import NavBar from './NavBar';
+// import '../../sass/NavBar.scss';
 
 export default function Index() {
 
   return (
     <div className="container">
       <Router>
+        <NavBar/>
         <Switch>
           <Route path='/' exact>
             <div className="card-header">Example Component</div>

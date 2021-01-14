@@ -17,6 +17,7 @@
             </style>
             <link href="{{ asset('css/app.css')}}" rel='stylesheet' type='text/css'/>
             <link href="{{ asset('css/example.css')}}" rel='stylesheet' type='text/css'/>
+              <link href="{{ asset('css/navbar.css')}}" rel='stylesheet' type='text/css'/>
 
 <style>
             body {

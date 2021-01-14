@@ -9,7 +9,8 @@ use Illuminate\Support\Facaces\Http;
 // use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Client\Response;
 use GuzzleHttp\Client;
-
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
   // protected function index(Request $req): JsonResponse {
@@ -28,6 +29,17 @@ class UserController extends Controller
   //   return 'hello';
 
   // }
+  public function register(Request $req) {
+    // $username = $req->username;
+    // $user = new User();
+    // $user->name = $username;
+    // $user.save();
+    $username = $req->username;
+    $users = DB::insert('insert into users (name) values (?)', [$username]);
+    echo $users;
+    return response(['user' => $username]);
+  }
+
   public function helper(Request $req) {
     $requestConfig= [
       'headers' => [
