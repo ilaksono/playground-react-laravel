@@ -76,3 +76,58 @@ show listing
 - php artisan make:controller Users
  - php artisan make:model Blog
  - php artisan make:controller Api/BlogController --resource
+
+## PHP-PGSQL Database steps
+ - `sudo apt update && sudo apt upgrade`
+ - `sudo apt install apache2 apache2-utils`
+ -  `sudo apt install php php-pgsql libapache2-mod-php`
+ - `sudo apt install postgresql libpq5 postgresql-9.5 postgresql-client-9.5 postgresql-client-common postgresql-contrib`
+ - run `php artisan migrate`
+
+ to reset db:
+  - run `php artisan migrate:fresh`
+## Steps to make api HTTP req to laravel
+ - to make axios.get('/api/users') get request
+ - create route in routes/api.php in format: 
+ ```
+ Route::get('/users', [UserController::class, 'index']);
+ ```
+  - to trigger controller method
+
+ - in UserController.php
+   - create method in format:
+ for db insert
+ ```
+ public function register(Request $req) {
+    $username = $req->username;
+    $users = DB::insert('insert into users (name) values (?)', [$username]);
+    echo $users;
+    return response(['user' => $username]);
+  }
+ ```   
+
+in http req format:
+```
+public function register(Request $req) {
+    $username = $req->username;
+    $users = DB::insert('insert into users (name) values (?)', [$username]);
+    echo $users;
+    return response(['user' => $username]);
+  }
+
+  public function helper(Request $req) {
+    $requestConfig= [
+      'headers' => [
+        'Content-Type' => 'application/json'
+      ]
+    ];
+    $client = new Client();
+    $result = $client -> request($req -> method(), 'https://jsonplaceholder.typicode.com/posts');
+    return $result;
+  }
+  public function index(Request $req){
+    $result = $this -> helper($req);
+    return response($result -> getBody(), $result-> getStatusCode())->header('Content-Type', 'application/json');
+  }
+```
+

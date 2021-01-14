@@ -29,11 +29,11 @@ class UserController extends Controller
   //   return 'hello';
 
   // }
+  // $username = $req->username;
+  // $user = new User();
+  // $user->name = $username;
+  // $user.save();
   public function register(Request $req) {
-    // $username = $req->username;
-    // $user = new User();
-    // $user->name = $username;
-    // $user.save();
     $username = $req->username;
     $users = DB::insert('insert into users (name) values (?)', [$username]);
     echo $users;
@@ -50,22 +50,22 @@ class UserController extends Controller
     $result = $client -> request($req -> method(), 'https://jsonplaceholder.typicode.com/posts');
     return $result;
   }
-
-    public function index(Request $req){
-      // $data = Http::get('https://jsonplaceholder.typicode.com/posts')
-      // ->json();
-      // return reponse($data);
-      // console_log('hi');
-      // return Http::get('http://example.com')->body();
-      // return $response -> json();
-      // return $data->json();
-    
-      // console_log(response() -> json());
-      
-      // return ['a' => 1, 'b' => 2];
-      // $response = Http::get('');
-      $result = $this -> helper($req);
-      // return $reponse->json();
-      return response($result -> getBody(), $result-> getStatusCode())->header('Content-Type', 'application/json');
-    }
+  public function index(Request $req){
+    $result = $this -> helper($req);
+    return response($result -> getBody(), $result-> getStatusCode())->header('Content-Type', 'application/json');
+  }
 }
+
+// $data = Http::get('https://jsonplaceholder.typicode.com/posts')
+// ->json();
+// return reponse($data);
+// console_log('hi');
+// return Http::get('http://example.com')->body();
+// return $response -> json();
+// return $data->json();
+
+// console_log(response() -> json());
+
+// return ['a' => 1, 'b' => 2];
+// $response = Http::get('');
+// return $reponse->json();
